@@ -66,14 +66,14 @@ public class TrackControllerTest {
 
         }
 
-//        @Test
-//        public void saveUserFailure() throws Exception {
-//            when(muzixSrevice.saveTrack(any())).thenThrow(TrackAlreadyExistsException.class);
-//            mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/save")
-//                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(muzix)))
-//                    .andExpect(MockMvcResultMatchers.status().isConflict())
-//                    .andDo(MockMvcResultHandlers.print());
-//        }
+       @Test
+        public void saveUserFailure() throws Exception {
+            when(muzixSrevice.saveTrack(any())).thenThrow(TrackAlreadyExistsException.class);
+            mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/save")
+                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(muzix)))
+                    .andExpect(MockMvcResultMatchers.status().isConflict())
+                    .andDo(MockMvcResultHandlers.print());
+        }
 
         @Test
         public void getAllUser() throws Exception {
