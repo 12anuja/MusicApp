@@ -47,6 +47,7 @@ public class TrackServiceTest {
 
         }
 
+        //Method to check if addition of data takes place successfully or not
         @Test
         public void saveUserTestSuccess() throws TrackAlreadyExistsException {
 
@@ -58,18 +59,18 @@ public class TrackServiceTest {
             verify(trackRepository,times(1)).save(track);
 
         }
-//
-//    @Test(expected = TrackAlreadyExistsException.class)
-//    public void saveUserTestFailure() throws TrackAlreadyExistsException {
-//        when(trackRepository.save((Track) any()).thenReturn(null));
-//        Track savedUser = trackService.saveTrack(track);
-//        System.out.println("savedUser" + savedUser);
-//        //Assert.assertEquals(user,savedUser);
-//
-//       /*doThrow(new UserAlreadyExistException()).when(userRepository).findById(eq(101));
-//       userService.saveUser(user);*/
-//
-//    }
+          @Test(expected = TrackAlreadyExistsException.class)
+          public void saveUserTestFailure() throws TrackAlreadyExistsException 
+          {
+                when(trackRepository.save((Track) any()).thenReturn(null));
+                Track savedUser = trackService.saveTrack(track);
+                //System.out.println("savedUser" + savedUser);
+                Assert.assertEquals(user,savedUser);
+
+       /*doThrow(new UserAlreadyExistException()).when(userRepository).findById(eq(101));
+       userService.saveUser(user);*/
+
+        }
 
         @Test
         public void getAllUser(){
