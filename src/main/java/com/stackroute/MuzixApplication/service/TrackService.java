@@ -27,4 +27,8 @@ public interface TrackService {
 
     //method to search track by name or comments
     List<Track> getTrackByNameOrComments(String name);
+    
+    
+    //method to get tracks from last.fm api and save in database
+    void saveTracksFromApi();
 }
